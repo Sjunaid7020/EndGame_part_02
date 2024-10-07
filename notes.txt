@@ -1,0 +1,5 @@
+1.install connect-flash
+2.make sure you put connect flash in app.use function
+3.kisi bhi route m app ko flash create karna hai
+4.kisi bhi doosre route par app use chalane ka try karna
+5.app connect flash ko use nahi kr skte bina express session k
