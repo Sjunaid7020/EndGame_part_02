@@ -10,10 +10,10 @@ router.get('/', function(req, res, next) {
 
 router.get('/create', async function(req, res){
  let userdata = await userModel.create({
-     username:'Jon',
-     nickname:'J',
-     description:'Developer',
-     categories:['js','React','node'],
+     username:'keven',
+     nickname:'hummer',
+     description:'Bike Rider with cool hair',
+     categories:['Bike','Road','hair'],
 
  })
     res.send(userdata)
