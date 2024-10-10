@@ -20,8 +20,7 @@ router.get('/create', async function(req, res){
 });
 
 router.get('/find', async function(req, res, ) {
-    var regex = new RegExp('Jon', 'i')
-    let user = await userModel.find({username: regex})
+    let user = await userModel.find({categories: {$all:["js"]} })
     res.send(user);
   });
 

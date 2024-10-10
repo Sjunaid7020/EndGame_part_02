@@ -1,0 +1,27 @@
+1) How can I perform a case-insensitive search in Mongoose ?
+ans=>
+router.get('/find', async function(req, res, ) {
+    var regex = new RegExp('^Jon$', 'i')
+    let user = await userModel.find({username: regex})
+    res.send(user);
+  });
+
+
+  RegExp - regexp can search insensitive names but it will show similar
+words that contain same name like 'Harshita', 'Harsh','Harshhhi'
+to avoid that we use
+^ - that means shuruaat aisi ho
+and
+$ - that means ant aisa ho
+
+example => ^hello$
+
+2) How do I find documents where an array field contains all of a set of values?
+ans=>
+if we want to fin values in any categories (ex:categories, nickname,etc) then put that
+$all menas in all documents and the value we ant to search
+ 
+router.get('/find', async function(req, res, ) {
+    let user = await userModel.find({categories: {$all:["js"]} })
+    res.send(user);
+  });

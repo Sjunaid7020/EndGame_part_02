@@ -3,3 +3,13 @@
 3.kisi bhi route m app ko flash create karna hai
 4.kisi bhi doosre route par app use chalane ka try karna
 5.app connect flash ko use nahi kr skte bina express session k
+
+RegExp - regexp can search insensitive names but it will show similar
+words that contain same name like 'Harshita', 'Harsh','Harshhhi'
+to avoid that we use
+^ - that means shuruaat aisi ho
+and
+$ - that means ant aisa ho
+
+example => ^hello$
+
