@@ -19,4 +19,11 @@ router.get('/create', async function(req, res){
     res.send(userdata)
 });
 
+router.get('/find', async function(req, res, ) {
+    var regex = new RegExp('Jon', 'i')
+    let user = await userModel.find({username: regex})
+    res.send(user);
+  });
+
+
 module.exports = router;
