@@ -20,8 +20,39 @@ example => ^hello$
 ans=>
 if we want to fin values in any categories (ex:categories, nickname,etc) then put that
 $all menas in all documents and the value we ant to search
- 
+
 router.get('/find', async function(req, res, ) {
     let user = await userModel.find({categories: {$all:["js"]} })
     res.send(user);
   });
+
+3) How can I search for document with a specific date range in Mongoose?
+ans=>
+$gte-> greater then equal to
+$lte-> less then equal to
+
+
+    router.get('/find', async function(req, res, ) {
+    var date1 = new Date('2024-10-07');
+    var date2 = new Date('2024-10-12');
+    let user = await userModel.find({datecreated: {$gte: date1, $lte: date2 } })
+    res.send(user);
+  });
+
+ans=>
+    $expr-> expraction (its an object)
+    $and-> and operator (its an array)
+    $gte-> greater then equal to
+    $lte-> less then equal to
+    $strLenCP -> spring length compair
+
+    router.get('/find', async function(req, res, ) {
+    let user = await userModel.find({
+        $expr:{$and:[
+            {$gte: [{$strLenCP:'$nickname'},0] },
+            {$lte:[{$strLenCP:'$nickname'},12]}
+                ]}
+    })
+    res.send(user);
+  });
+

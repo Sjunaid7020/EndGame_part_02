@@ -20,7 +20,12 @@ router.get('/create', async function(req, res){
 });
 
 router.get('/find', async function(req, res, ) {
-    let user = await userModel.find({categories: {$all:["js"]} })
+    let user = await userModel.find({
+        $expr:{$and:[
+            {$gte: [{$strLenCP:'$nickname'},0] },
+            {$lte:[{$strLenCP:'$nickname'},12]}
+                ]}
+    })
     res.send(user);
   });
 
